@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #495371;
+    font-family: 'Permanent Marker', cursive;
+}
+.text-wrapper {
+    background-color: #74959A;
+    margin-top: 15em;
+    text-align: center;
+}
+.text-wrapper h1 {
+    color: #F1E0AC;
+    font-size: 3.5rem;
+}
+.choice-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6em;
+}
+.choice-wrapper button {
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    border-radius: 10%;
+    border: 6px solid #74959A;
+    background-color: #F1E0AC;
+    color: #495371;
+    font-size: 9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.choice-wrapper button:hover {
+    border: 6px solid #F1E0AC;
+}
+.wl-text-wrapper {
+    text-align: center;
+    margin-top: 3%;
+}
+.wl-text-wrapper h2 {
+    color: #F1E0AC;
+}
+.stats-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20%;
+    justify-content: center;
+    align-items: center;
+}
+.wl-icon {
+    font-size: 3rem;
+    color: #98B4AA;
+}
+.stats-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.stats-item p {
+    font-size: 2rem;
+    color: #F1E0AC;
+}

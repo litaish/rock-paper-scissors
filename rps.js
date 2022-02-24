@@ -1,3 +1,18 @@
+const rockChoice = document.getElementById('rockBtn');
+const paperChoice = document.getElementById('paperBtn');
+const scissorsChoice = document.getElementById('scissorsBtn');
+
+let playerChoice;
+
+rockChoice.addEventListener('click', () => {
+    playerChoice = 'Rock';
+})
+paperChoice.addEventListener('click', () => {
+    playerChoice = 'Paper';
+})
+scissorsChoice.addEventListener('click', () => {
+    playerChoice = 'Scissors';
+})
 // Returns a random value from choices - rock, paper or scissors
 function computerPlay(){
     let choices = ['Rock', 'Paper', 'Scissors']
@@ -14,17 +29,13 @@ let playerWins = 0;
 let computerWins = 0;
 
 function playRound(playerSelection, computerSelection){
-    // Convert player selection to lowercase
-    let playerAnswer = playerSelection.toLowerCase().trim();
-    let tieMessage = 'It\'s a tie!'
-
     // Checking if player selection matches computer selection
-    if(playerAnswer == computerSelection.toLowerCase()){
+    if(playerSelection == computerSelection.toLowerCase()){
         ++playerWins;
         ++computerWins;
         return 'It\'s a tie!'
     } else {
-        switch (playerAnswer){
+        switch (playerSelection){
             case 'rock':
                 if(computerSelection == 'Paper'){
                     ++computerWins
@@ -70,10 +81,10 @@ function checkWinsAndLosses(){
 function game(){
     for (let i = 0; i < 5; i++){
         let computerSelection = computerPlay();
-        let playerSelection = prompt('Please enter your choice (rock, paper or scissors): ')
-        let roundResult = playRound(playerSelection, computerSelection);
+        let roundResult = playRound(playerChoice, computerSelection);
         console.log(roundResult)
     }
 }
 game()
 console.log(checkWinsAndLosses())
+

@@ -4,10 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="rps.js"></script>  
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="rps.js" defer></script>  
+    <title>Rock, paper, scissors</title>
 </head>
 <body>
-    
+    <div class="text-wrapper">
+        <h1>Choose your weapon</h1>
+    </div>
+    <div class="choice-wrapper">
+        <button id="rockBtn"><i class="fa-solid fa-hand-back-fist"></i></button>
+        <button id="paperBtn"><i class="fa-solid fa-hand"></i></button>
+        <button id="scissorsBtn"><i class="fa-solid fa-hand-scissors"></i></button>
+    </div>
+    <div class="wl-text-wrapper">
+        <h2>You lose. X beats X</h2>
+    </div>
+    <div class="stats-wrapper">
+        <div class="stats-item">
+            <i class="fa-solid fa-user-secret wl-icon"></i>
+            <p>4</p>
+        </div>
+        <div class="stats-item">
+            <i class="fas fa-desktop wl-icon"></i>
+            <p>4</p>
+        </div>
+    </div>
 </body>
 </html>
