@@ -14,7 +14,7 @@ body {
 }
 .text-wrapper {
     background-color: #74959A;
-    margin-top: 15em;
+    margin-top: 10em;
     text-align: center;
 }
 .text-wrapper h1 {
@@ -71,4 +71,27 @@ body {
     margin-bottom: 0.5em;
     font-size: 2rem;
     color: #F1E0AC;
+}
+.play-again-wrapper {
+    display: flex;
+    justify-content: center;
+}
+#playAgain {
+    display: none;
+    padding: 1em 2em;
+    border-radius: 15%;
+    border: 6px solid #74959A;
+    background-color: #F1E0AC;
+    font-size: 1.5rem;
+    font-family: 'Permanent Marker', cursive;
+    color: #495371;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#playAgain:hover {
+    border: 6px solid #F1E0AC;
+}
+/*Enable button visability for game end*/
+.btn-visable {
+    display: block !important;
 }

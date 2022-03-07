@@ -1,6 +1,7 @@
 const rockChoice = document.getElementById('rockBtn');
 const paperChoice = document.getElementById('paperBtn');
 const scissorsChoice = document.getElementById('scissorsBtn');
+const playAgainBtn = document.getElementById('playAgain');
 
 let playerChoice;
 
@@ -91,18 +92,39 @@ function displayWins(pWinsCount, cWinsCount, resultMsg) {
     resultMsgEl.innerText = `${resultMsg}`;
 }
 function checkWinsAndLosses(){
-    if(playerWins == computerWins){
-        return 'Game is a tie!'
-    } else {
-        if(playerWins > computerWins) {
-            return 'You are the winner!'
-        } else {
-            return 'Sorry, you lose.'
-        }
+    if (playerWins == 5) {
+        const gameResultEl = document.getElementById('gameResult');
+        gameResultEl.innerText = 'YOU WIN!';
+        gameResultEl.style.color = '#32CD32';
+
+        // Enable restart btn visability
+        playAgainBtn.classList.toggle('btn-visable');
+    } else if (computerWins == 5) {
+        const gameResultEl = document.getElementById('gameResult');
+        gameResultEl.innerText = 'YOU LOSE...';
+        gameResultEl.style.color = '#8B0000';
+        // Enable restart btn visability
+        playAgainBtn.classList.toggle('btn-visable');
     }
+}
+function resetCounter(){
+    playerWins = 0;
+    computerWins = 0;
+    // Change header to original header
+    const gameResultEl = document.getElementById('gameResult');
+    gameResultEl.innerHTML = 'CHOOSE YOUR WEAPON'
+    gameResultEl.style.color = '#F1E0AC';
 }
 function game(playerChoice){
         let computerSelection = computerPlay();
-        let roundResult = playRound(playerChoice, computerSelection);
+        playRound(playerChoice, computerSelection);
+        checkWinsAndLosses();
 }
+
+playAgainBtn.addEventListener('click', () => {
+    // On click restart game
+    resetCounter();
+
+    playAgainBtn.classList.toggle('btn-visable');
+})
 
