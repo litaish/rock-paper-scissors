@@ -67,6 +67,8 @@ body {
     align-items: center;
 }
 .stats-item p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     font-size: 2rem;
     color: #F1E0AC;
 }

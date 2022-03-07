@@ -6,12 +6,20 @@ let playerChoice;
 
 rockChoice.addEventListener('click', () => {
     playerChoice = 'Rock';
+
+    playRound(playerChoice, computerPlay());
+
 })
 paperChoice.addEventListener('click', () => {
     playerChoice = 'Paper';
+
+    // Plays one round of a game
+    playRound(playerChoice, computerPlay());
 })
 scissorsChoice.addEventListener('click', () => {
     playerChoice = 'Scissors';
+
+    playRound(playerChoice, computerPlay());
 })
 // Returns a random value from choices - rock, paper or scissors
 function computerPlay(){
