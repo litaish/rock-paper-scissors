@@ -5,21 +5,20 @@ const scissorsChoice = document.getElementById('scissorsBtn');
 let playerChoice;
 
 rockChoice.addEventListener('click', () => {
-    playerChoice = 'Rock';
+    playerChoice = 'rock';
 
-    playRound(playerChoice, computerPlay());
-
+    game(playerChoice);
 })
 paperChoice.addEventListener('click', () => {
-    playerChoice = 'Paper';
+    playerChoice = 'paper';
 
     // Plays one round of a game
-    playRound(playerChoice, computerPlay());
+    game(playerChoice);
 })
 scissorsChoice.addEventListener('click', () => {
-    playerChoice = 'Scissors';
+    playerChoice = 'scissors';
 
-    playRound(playerChoice, computerPlay());
+    game(playerChoice);
 })
 // Returns a random value from choices - rock, paper or scissors
 function computerPlay(){
@@ -39,40 +38,57 @@ let computerWins = 0;
 function playRound(playerSelection, computerSelection){
     // Checking if player selection matches computer selection
     if(playerSelection == computerSelection.toLowerCase()){
-        ++playerWins;
-        ++computerWins;
-        return 'It\'s a tie!'
+        displayWins(playerWins, computerWins, 'It\'s a tie!');
     } else {
         switch (playerSelection){
             case 'rock':
                 if(computerSelection == 'Paper'){
                     ++computerWins
-                    return 'You lose! Paper beats rock!'
+                    displayWins(playerWins, computerWins, 'You lose! Paper beats rock!');
+                    break;
                 }
                 else {
                     ++playerWins;
-                    return 'You win! Rock beats scissors!'
+                    displayWins(playerWins, computerWins, 'You win! Rock beats scissors!');
+                    break;
                 }
             case 'paper':
                 if(computerSelection == 'Rock'){
                     ++playerWins;
-                    return 'You win! Paper beats rock!'
+                    displayWins(playerWins, computerWins, 'You win! Paper beats rock!');
+                    break;
                 } else {
                     ++computerWins
-                    return 'You lose! Scissors beat paper!'
+                    displayWins(playerWins, computerWins, 'You lose! Scissors beat paper!');
+                    break;
                 }
             case 'scissors':
                 if(computerSelection == 'Rock'){
                     ++computerWins
-                    return 'You lose! Rock beats scissors!'
+                    displayWins(playerWins, computerWins, 'You lose! Rock beats scissors!');
+                    break;
                 } else {
                     ++playerWins;
-                    return 'You win! Scissors beat paper!'
+                    displayWins(playerWins, computerWins, 'You win! Scissors beat paper!');
+                    break;
                 }
+                
             default: 
                 return 'No such option! Choose between rock, paper and scissors.'
         }
     }
+}
+function displayWins(pWinsCount, cWinsCount, resultMsg) {
+    // Display results of round
+    const playerWins = document.getElementById('playerWins');
+    const computerWins = document.getElementById('computerWins');
+    const resultMsgEl = document.getElementById('resultMsg');
+
+    playerWins.innerText = `${pWinsCount}`;
+    computerWins.innerText = `${cWinsCount}`;
+
+    // Display result of round
+    resultMsgEl.innerText = `${resultMsg}`;
 }
 function checkWinsAndLosses(){
     if(playerWins == computerWins){
@@ -85,14 +101,8 @@ function checkWinsAndLosses(){
         }
     }
 }
-// A game of 5 rounds
-function game(){
-    for (let i = 0; i < 5; i++){
+function game(playerChoice){
         let computerSelection = computerPlay();
         let roundResult = playRound(playerChoice, computerSelection);
-        console.log(roundResult)
-    }
 }
-game()
-console.log(checkWinsAndLosses())
 
