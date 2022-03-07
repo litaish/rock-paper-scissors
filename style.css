@@ -79,7 +79,10 @@ body {
 #playAgain {
     display: none;
     padding: 1em 2em;
-    border-radius: 15%;
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom-right-radius:25px;
+    border-bottom-left-radius:25px;
     border: 6px solid #74959A;
     background-color: #F1E0AC;
     font-size: 1.5rem;
